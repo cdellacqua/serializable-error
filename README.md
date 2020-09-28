@@ -3,7 +3,7 @@
 Custom error class that supports JSON serialization and concatenation
 
 ## Full documentation:
-* [SerializableError](https://github.com/cdellacqua/serializable-error/blob/master/docs/classes/result.md)
+* [SerializableError](https://github.com/cdellacqua/serializable-error/blob/master/docs/classes/serializableerror.md)
 
 ## Highlights
 
