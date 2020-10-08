@@ -2,12 +2,14 @@
 	"name": "@cdellacqua/serializable-error",
 	"version": "1.0.2",
 	"description": "Custom error class that supports JSON serialization and concatenation",
-	"main": "build/index.js",
+	"main": "build/index.cjs.js",
 	"types": "build/index.d.ts",
+	"module": "build/index.es.js",
+	"browser": "build/index.iife.js",
 	"scripts": {
 		"test": "jest",
 		"coverage": "jest --coverage",
-		"build": "rimraf build && tsc",
+		"build": "rimraf build && rollup -c",
 		"doc": "rimraf docs && typedoc --disableSources --readme none --mode file --readme none --exclude src/serialize.ts --plugin typedoc-plugin-markdown src/serializable-error.ts",
 		"prepare": "npm run build",
 		"prepublishOnly": "npm test"
@@ -28,17 +30,22 @@
 	"files": [
 		"build/**/*"
 	],
-	"module": "serializable-error",
 	"author": "Carlo Dell'Acqua",
 	"license": "MIT",
 	"devDependencies": {
+		"@rollup/plugin-node-resolve": "^9.0.0",
+		"@rollup/plugin-typescript": "^6.0.0",
 		"@types/jest": "^25.2.1",
 		"@types/node": "^14.0.23",
 		"jest": "^26.0.1",
 		"rimraf": "^3.0.2",
+		"rollup": "^2.29.0",
+		"rollup-plugin-terser": "^7.0.2",
 		"ts-jest": "^25.5.0",
+		"tslib": "^2.0.2",
 		"typedoc": "^0.17.8",
 		"typedoc-plugin-markdown": "^2.2.17",
 		"typescript": "^4.0.3"
-	}
+	},
+	"dependencies": {}
 }
