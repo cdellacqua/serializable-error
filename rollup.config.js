@@ -15,11 +15,6 @@ export default {
 			format: 'es',
 			sourcemap: true,
 		},
-		{
-			file: pkg.browser,
-			format: 'iife',
-			name: 'SerializableError',
-		}
 	],
 	external: Object.keys(pkg.dependencies || {}),
 	plugins: [
