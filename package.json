@@ -1,10 +1,9 @@
 {
 	"name": "@cdellacqua/serializable-error",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"description": "Custom error class that supports JSON serialization and concatenation",
 	"main": "build/index.js",
 	"types": "build/index.d.ts",
-	"module": "build/index.js",
 	"scripts": {
 		"test": "jest",
 		"coverage": "jest --coverage",
