@@ -2,7 +2,7 @@ function serializeChecked(obj: Record<string, any>, maxDepth = 256, currentDepth
 	const serialized: Record<string, any> = {};
 
 	Object.getOwnPropertyNames(obj).forEach((propName) => {
-		if (typeof obj[propName] === 'object') {
+		if (typeof obj[propName] === 'object' && obj[propName] !== null) {
 			if (currentDepth < maxDepth) {
 				serialized[propName] = serializeChecked(obj[propName], maxDepth, currentDepth + 1);
 			} else {

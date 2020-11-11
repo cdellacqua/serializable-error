@@ -49,10 +49,18 @@ describe('serialization', function () {
 		});
 	});
 	it('serializes an error with an Error cause', () => {
-		expect(new SerializableError('test', new Error('err')).toJSON()).toMatchObject({
+		expect(new SerializableError('test', new class extends Error {
+			test = null;
+			und = undefined;
+			constructor(msg: string) {
+				super(msg);
+			}
+		}('err')).toJSON()).toMatchObject({
 			message: 'test',
 			cause: {
 				message: 'err',
+				test: null,
+				und: undefined,
 			}
 		});
 	});
