@@ -32,9 +32,8 @@ export class SerializableError extends Error {
 	 */
 	static from(err: Error): SerializableError {
 		const newErr = new SerializableError();
-		const serialized = serialize(err);
-		Object.keys(serialized).forEach((key) => {
-			(newErr as Record<string, any>)[key] = serialized[key];
+		Object.getOwnPropertyNames(err).forEach((key) => {
+			(newErr as Record<string, any>)[key] = (err as Record<string, any>)[key];
 		});
 		
 		return newErr;
