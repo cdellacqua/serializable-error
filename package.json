@@ -2,12 +2,13 @@
 	"name": "@cdellacqua/serializable-error",
 	"version": "1.1.0",
 	"description": "Custom error class that supports JSON serialization and concatenation",
-	"main": "build/index.js",
-	"types": "build/index.d.ts",
+	"main": "build/index.cjs.js",
+	"module": "build/index.esm.js",
+	"type": "module",
 	"scripts": {
 		"test": "jest",
 		"coverage": "jest --coverage",
-		"build": "rimraf build && tsc",
+		"build": "rimraf build && rollup -c && tsc --declaration --emitDeclarationOnly --declarationDir build",
 		"doc": "rimraf docs && typedoc --disableSources --readme none --mode file --readme none --exclude src/serialize.ts --plugin typedoc-plugin-markdown src/serializable-error.ts",
 		"prepare": "npm run build",
 		"prepublishOnly": "npm test"
@@ -28,13 +29,24 @@
 	"files": [
 		"build/**/*"
 	],
+	"exports": {
+		".": {
+			"import": "./build/index.esm.js",
+			"require": "./build/index.cjs.js"
+		},
+		"./package.json": "./package.json"
+	},
 	"author": "Carlo Dell'Acqua",
 	"license": "MIT",
 	"devDependencies": {
+		"@rollup/plugin-commonjs": "^16.0.0",
+		"@rollup/plugin-node-resolve": "^10.0.0",
+		"@rollup/plugin-typescript": "^6.1.0",
 		"@types/jest": "^25.2.1",
 		"@types/node": "^14.0.23",
 		"jest": "^26.0.1",
 		"rimraf": "^3.0.2",
+		"rollup": "^2.32.1",
 		"ts-jest": "^25.5.0",
 		"typedoc": "^0.17.8",
 		"typedoc-plugin-markdown": "^2.2.17",
