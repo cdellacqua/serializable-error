@@ -2,6 +2,11 @@
 
 Custom error class that supports JSON serialization and concatenation
 
+
+[NPM Package](https://www.npmjs.com/package/@cdellacqua/serializable-error)
+
+`npm install @cdellacqua/serializable-error`
+
 ## Full documentation:
 * [SerializableError](https://github.com/cdellacqua/serializable-error/blob/master/docs/classes/serializableerror.md)
 
